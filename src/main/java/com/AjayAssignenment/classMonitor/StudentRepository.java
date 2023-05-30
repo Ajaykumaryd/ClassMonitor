@@ -3,6 +3,7 @@ package com.AjayAssignenment.classMonitor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 public class StudentRepository {
 
@@ -23,4 +24,23 @@ public class StudentRepository {
        students.add(student);
        pairMap.put(teacher,students);
     }
+
+    public Optional<Student> getStudent(String student){
+        if(studentmap.containsKey(student)){
+            return Optional.of(studentmap.get(student));
+        }else{
+            return Optional.empty();
+        }
+    }
+    public Optional<Teacher> getTeacher(String teacher){
+      if(teachermap.containsKey(teacher)){
+         return Optional.of(teachermap.get(teacher));
+      }else{
+          return Optional.empty();
+      }
+    }
+
+
+
+
 }
