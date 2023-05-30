@@ -14,16 +14,26 @@ public class StudentService {
         repository.addTeacher(teacher);
     }
 
-    public void addstuteachpair(String student, String teacher) {
+    public void addstuteachpair(String student, String teacher) throws StudentInValidException,TeacherInvalidException {
         Optional<Student> studentOptional=repository.getStudent(student);
         Optional<Teacher> teacherOptional=repository.getTeacher(teacher);
         if(studentOptional.isEmpty()){
             throw new StudentInValidException(student);
         }
-
         if(teacherOptional.isEmpty()){
             throw new TeacherInvalidException();
         }
         repository.addpairs(student,teacher);
     }
+
+    public void getName(String name) {
+        Optional<Student> stuOptional=repository.getStudent(name);
+        if(stuOptional.isEmpty()){
+            throw new StudentInValidException(name);
+        }else{
+
+        }
+    }
+
+
 }

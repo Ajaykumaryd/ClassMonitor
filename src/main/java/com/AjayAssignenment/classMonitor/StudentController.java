@@ -23,8 +23,21 @@ public class StudentController {
 
     @PutMapping("/teacher-student-Pair")
     public  ResponseEntity<String> addpair(@RequestParam String student,@RequestParam String teacher){
-        service.addstuteachpair(student,teacher);
-        return new ResponseEntity<>("Pair added Sucessfully",HttpStatus.CREATED);
+        try {
+            service.addstuteachpair(student,teacher);
+            return new ResponseEntity<>("Pair added Sucessfully",HttpStatus.CREATED);
+        }
+        catch (StudentInValidException e){
+            return new ResponseEntity<>("Student not present",HttpStatus.NOT_FOUND);
+        }
+        catch (TeacherInvalidException ex){
+            return new ResponseEntity<>("Teacher is not present",HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping()
+    public Student getStudentName(String name){
+        service.getName(name);
     }
 
 }
