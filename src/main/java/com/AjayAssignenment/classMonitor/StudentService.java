@@ -1,8 +1,6 @@
 package com.AjayAssignenment.classMonitor;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class StudentService {
@@ -48,5 +46,8 @@ public class StudentService {
     }
 
 
-
+    public ArrayList<String> getList() {
+        ArrayList<String> ans=repository.getListStudents();
+        return ans;
+    }
 }

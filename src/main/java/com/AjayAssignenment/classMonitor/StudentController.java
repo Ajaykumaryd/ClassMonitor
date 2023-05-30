@@ -4,6 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @RestController
 public class StudentController {
 
@@ -54,6 +56,11 @@ public class StudentController {
        }
     }
 
+      @GetMapping("/get-List")
+      public ResponseEntity<ArrayList<String>> getStudent(){
+        ArrayList<String> list=service.getList();
+     return new ResponseEntity<>(list,HttpStatus.OK);
+    }
 
 
 

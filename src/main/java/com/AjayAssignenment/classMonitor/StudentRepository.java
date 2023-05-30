@@ -2,7 +2,6 @@ package com.AjayAssignenment.classMonitor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Optional;
 
 public class StudentRepository {
@@ -41,4 +40,9 @@ public class StudentRepository {
     }
 
 
+    public ArrayList<String> getListStudents() {
+//    ArrayList<String> ans= new ArrayList<>(studentmap.keySet());
+//    return ans;
+        return new ArrayList<>(studentmap.keySet());
+    }
 }
