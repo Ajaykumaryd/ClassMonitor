@@ -1,5 +1,8 @@
 package com.AjayAssignenment.classMonitor;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import java.util.Optional;
 
 public class StudentService {
@@ -26,12 +29,13 @@ public class StudentService {
         repository.addpairs(student,teacher);
     }
 
-    public void getName(String name) {
+
+    public Student getName(String name) {
         Optional<Student> stuOptional=repository.getStudent(name);
         if(stuOptional.isEmpty()){
             throw new StudentInValidException(name);
         }else{
-
+              return stuOptional.get();
         }
     }
 
