@@ -44,10 +44,14 @@ public class StudentService {
     }
     return optionalTeacher.get();
     }
-
-
     public ArrayList<String> getList() {
         ArrayList<String> ans=repository.getListStudents();
         return ans;
+    }
+
+    public ArrayList<String> getStudents(String teacher) {
+
+    return repository.getStudentsName(teacher);
+
     }
 }

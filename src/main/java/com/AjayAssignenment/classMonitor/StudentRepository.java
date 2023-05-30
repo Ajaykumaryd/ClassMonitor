@@ -18,7 +18,7 @@ public class StudentRepository {
      teachermap.put(teacher.getName(),teacher);
     }
 
-    public void addpairs(String student, String teacher) {
+    public void addpairs(String student, String teacher){
        ArrayList<String> students= pairMap.getOrDefault(teacher,new ArrayList<String>());
        students.add(student);
        pairMap.put(teacher,students);
@@ -44,5 +44,9 @@ public class StudentRepository {
 //    ArrayList<String> ans= new ArrayList<>(studentmap.keySet());
 //    return ans;
         return new ArrayList<>(studentmap.keySet());
+    }
+
+    public ArrayList<String> getStudentsName(String teacher){
+      return new ArrayList<>(pairMap.get(teacher));
     }
 }

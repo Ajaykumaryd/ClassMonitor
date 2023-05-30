@@ -62,7 +62,10 @@ public class StudentController {
      return new ResponseEntity<>(list,HttpStatus.OK);
     }
 
+     @GetMapping("/c")
+      public  ResponseEntity<ArrayList<String>> studentbyTeacher(@RequestParam String teacher){
 
-
+      return new ResponseEntity<>(service.getStudents(teacher),HttpStatus.CREATED);
+     }
 
 }
