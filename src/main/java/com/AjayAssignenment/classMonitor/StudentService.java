@@ -30,7 +30,7 @@ public class StudentService {
     }
 
 
-    public Student getName(String name) {
+    public Student getName(String name) throws StudentInValidException {
         Optional<Student> stuOptional=repository.getStudent(name);
         if(stuOptional.isEmpty()){
             throw new StudentInValidException(name);
@@ -38,6 +38,15 @@ public class StudentService {
               return stuOptional.get();
         }
     }
+
+    public Teacher getTeacherName(String name) throws TeacherInvalidException {
+    Optional<Teacher> optionalTeacher=repository.getTeacher(name);
+    if(optionalTeacher.isEmpty()){
+        throw new TeacherInvalidException();
+    }
+    return optionalTeacher.get();
+    }
+
 
 
 }

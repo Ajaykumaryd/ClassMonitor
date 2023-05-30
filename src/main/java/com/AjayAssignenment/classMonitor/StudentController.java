@@ -43,4 +43,19 @@ public class StudentController {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/get-name-teacher/{name}")
+    public ResponseEntity<Teacher> getTeacherName(@PathVariable String name){
+    try {
+        Teacher teach = service.getTeacherName(name);
+        return new ResponseEntity<>(teach,HttpStatus.CREATED);
+    }catch(TeacherInvalidException teach){
+        return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+       }
+    }
+
+
+
+
+
 }
