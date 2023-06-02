@@ -1,5 +1,6 @@
 package com.AjayAssignenment.classMonitor;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +10,12 @@ import java.util.ArrayList;
 @RestController
 public class StudentController {
 
-    private StudentService service = new StudentService();
+    public StudentController(){
+       System.out.println("Beam of Controller");
+    }
+
+    @Autowired
+    private StudentService service ;
 
     @PostMapping("/add-student")
     public ResponseEntity<String> addStudnet(@RequestBody Student std) {
@@ -24,12 +30,13 @@ public class StudentController {
     }
 
     @PutMapping("/teacher-student-Pair")
-    public ResponseEntity<String> addpair(@RequestParam String student, @RequestParam String teacher) {
+    public ResponseEntity<String> addpair(@RequestParam String student, @RequestParam String teacher) throws StudentInValidException{
         try {
             service.addstuteachpair(student, teacher);
             return new ResponseEntity<>("Pair added Sucessfully", HttpStatus.CREATED);
         } catch (StudentInValidException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+//            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+              return new ResponseEntity<>("Student is not present",HttpStatus.NOT_FOUND);
         } catch (TeacherInvalidException ex) {
             return new ResponseEntity<>("Teacher is not present", HttpStatus.NOT_FOUND);
         }

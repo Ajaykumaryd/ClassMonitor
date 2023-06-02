@@ -1,11 +1,20 @@
 package com.AjayAssignenment.classMonitor;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.Optional;
 
+@Service
 public class StudentService {
 
-    private StudentRepository repository=new StudentRepository();
+
+    public StudentService(){
+        System.out.println("Beam of studentService");
+    };
+    @Autowired
+    private StudentRepository repository;
     public String add(Student std) {
         repository.addStudent(std);
         return "Student added";

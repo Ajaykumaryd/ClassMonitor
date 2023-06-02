@@ -1,11 +1,17 @@
 package com.AjayAssignenment.classMonitor;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
 
+@Repository
 public class StudentRepository {
 
+    public StudentRepository(){
+        System.out.println("Beam of  Repo");
+    }
     HashMap<String,Student> studentmap=new HashMap<>();
     HashMap<String,Teacher> teachermap=new HashMap<>();
 
