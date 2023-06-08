@@ -55,4 +55,9 @@ public class StudentRepository {
     public ArrayList<String> getStudentsName(String teacher){
       return new ArrayList<>(pairMap.get(teacher));
     }
+    
+    public void delete(String name){
+    studentmap.remove(name);
+
+    }
 }
