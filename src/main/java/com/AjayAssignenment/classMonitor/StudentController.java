@@ -74,5 +74,10 @@ public class StudentController {
 
       return new ResponseEntity<>(service.getStudents(teacher),HttpStatus.CREATED);
      }
+    
+      @DeleteMapping("/delete-student")
+     public String deleteStudent(@RequestParam String name){
+     return service.deleteStudent(name);
+     }
 
 }
