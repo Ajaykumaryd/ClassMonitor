@@ -63,4 +63,9 @@ public class StudentService {
     return repository.getStudentsName(teacher);
 
     }
+    
+     public String deleteStudent(String name) {
+    repository.delete(name);
+    return "student removed with name "+name;
+    }
 }
